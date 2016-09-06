@@ -42,8 +42,12 @@ Alternatively, specify a custom `PREFIX` as an example.
 
     PREFIX="$HOME/usr" ./makewine.sh
 
-Once building is complete don't forget to add `$HOME/usr/bin` to your `$PATH`
-environment variable.
+Once building is complete don't forget to add `$PREFIX` to your `$PATH`
+environment variable.  For example, add to your `~/.bashrc` file:
+
+```bash
+export PATH="${HOME}/usr/bin:${PATH}"
+```
 
 # Setting up WINE for No Man's Sky
 
@@ -64,7 +68,7 @@ winetricks videomemorysize=2048
 wine setup_no_mans_sky_2.3.0.5.exe
 ```
 
-> Note: WINE on Ubuntu does not with WINE configured as Windows 7; however
+> Note: WINE on Ubuntu does not work with WINE configured as Windows 7; however
 > Windows XP worked for me.
 
 Then you may start No Man's Sky.
