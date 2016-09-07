@@ -20,10 +20,10 @@ export PREFIX="${PREFIX:-${HOME}/usr}"
 export WINE_VERSION="${WINE_VERSION:-wine-1.9.16}"
 
 if [ ! -d "${PREFIX}/src" ]; then
-  mkdir -p ${PREFIX}/usr/src
+  mkdir -p "${PREFIX}"/src
 fi
 
-cd ${PREFIX}/src
+cd "${PREFIX}"/src
 if [ ! -d "./wine" ]; then
   git clone git://source.winehq.org/git/wine.git && (
     cd ./wine
