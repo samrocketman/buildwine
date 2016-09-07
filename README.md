@@ -4,7 +4,7 @@ This document is designed to build wine and install it in a user writeable
 prefix at `$HOME/usr`.  This was done to play No Man's Sky on WINE but the
 pre-built Ubuntu packages didn't seem to work at all.
 
-I intend to also register my experience with the [No Man's Sky GOG page on the
+I have registered my experience with the [No Man's Sky GOG page on the
 AppDB][appdb_nms].
 
 Other references:
