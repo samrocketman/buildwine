@@ -18,6 +18,7 @@
 
 export PREFIX="${PREFIX:-${HOME}/usr}"
 export WINE_VERSION="${WINE_VERSION:-wine-1.9.16}"
+[[ -z "${THREADS}" ]] && export THREADS="$(awk '{ threads+=($0 ~ "^processor") }END{ print threads+1 }' /proc/cpuinfo)"
 
 if [ ! -d "${PREFIX}/src" ]; then
   mkdir -p "${PREFIX}"/src
@@ -36,19 +37,19 @@ mkdir -p wine64 wine32-tools wine32
 #build wine64
 pushd ./wine64/
 ../wine/configure --enable-win64 --prefix="${PREFIX}"
-make -j5
+make -j${THREADS}
 popd
 
 #build wine32-tools
 pushd ./wine32-tools/
 ../wine/configure --prefix="${PREFIX}"
-make -j5
+make -j${THREADS}
 popd
 
 #build wine32 biarch
 pushd ./wine32/
 ../wine/configure --with-wine64=../wine64 --with-wine-tools=../wine32-tools --prefix="${PREFIX}"
-make -j5
+make -j${THREADS}
 popd
 
 #install biarch wine
