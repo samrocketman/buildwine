@@ -49,6 +49,13 @@ environment variable.  For example, add to your `~/.bashrc` file:
 export PATH="${HOME}/usr/bin:${PATH}"
 ```
 
+> Note: the script builds WINE from master but I have built WINE 1.9.16 for No
+> Man's Sky.  You can do that in the following way.
+
+>```bash
+WINE_VERSION=wine-1.9.16 ./makewine.sh
+``
+
 # Setting up WINE for No Man's Sky
 
 This is for setting up WINE for No Man's Sky GOG edition.

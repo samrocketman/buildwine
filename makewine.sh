@@ -17,7 +17,7 @@
 #sudo apt-get install xorg-dev libx11-dev flex bison gcc-multilib g++-multilib nvidia-opencl-dev libx11-dev:i386 libfreetype6-dev libfreetype6-dev:i386
 
 export PREFIX="${PREFIX:-${HOME}/usr}"
-export WINE_VERSION="${WINE_VERSION:-wine-1.9.16}"
+export WINE_VERSION="${WINE_VERSION:-master}"
 [[ -z "${THREADS}" ]] && export THREADS="$(awk '{ threads+=($0 ~ "^processor") }END{ print threads+1 }' /proc/cpuinfo)"
 
 if [ ! -d "${PREFIX}/src" ]; then
