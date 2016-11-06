@@ -17,7 +17,7 @@
 #sudo apt-get install xorg-dev libx11-dev flex bison gcc-multilib g++-multilib nvidia-opencl-dev libx11-dev:i386 libfreetype6-dev libfreetype6-dev:i386
 
 export PREFIX="${PREFIX:-${HOME}/usr}"
-export WINE_VERSION="${WINE_VERSION:-master}"
+export WINE_VERSION="${WINE_VERSION:-origin/master}"
 [[ -z "${THREADS}" ]] && export THREADS="$(awk '{ threads+=($0 ~ "^processor") }END{ print threads+1 }' /proc/cpuinfo)"
 
 if [ ! -d "${PREFIX}/src" ]; then
@@ -25,13 +25,21 @@ if [ ! -d "${PREFIX}/src" ]; then
 fi
 
 cd "${PREFIX}"/src
+
 if [ ! -d "./wine" ]; then
   git clone git://source.winehq.org/git/wine.git && (
     cd ./wine
     git checkout ${WINE_VERSION}
   )
+else
+  (
+    cd ./wine
+    git clean -xfd
+    git reset --hard ${WINE_VERSION}
+  )
 fi
 
+rm -rf wine64 wine32-tools wine32
 mkdir -p wine64 wine32-tools wine32
 
 #build wine64
