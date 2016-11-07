@@ -34,6 +34,7 @@ if [ ! -d "./wine" ]; then
 else
   (
     cd ./wine
+    git fetch
     git clean -xfd
     git reset --hard ${WINE_VERSION}
   )
