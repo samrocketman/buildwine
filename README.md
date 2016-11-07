@@ -16,14 +16,7 @@ Other references:
 
 Install prerequisites for both 64-bit and 32-bit software building.
 
-```bash
-sudo dpkg --add-architecture i386
-sudo apt-get update
-sudo apt-get install build-essential git
-sudo apt-get build-dep wine-devel wine-devel:i386
-#additional packages for 32-bit
-sudo apt-get install xorg-dev libx11-dev flex bison gcc-multilib g++-multilib nvidia-opencl-dev libx11-dev:i386 libfreetype6-dev libfreetype6-dev:i386
-```
+    ./dependencies.sh
 
 # Building Biarch WINE
 
