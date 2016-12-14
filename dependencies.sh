@@ -6,6 +6,19 @@ sudo apt-get -y install build-essential git
 sudo apt-get build-dep wine-devel wine-devel:i386
 #additional packages for 32-bit
 packages=(
+  gettext
+  libgnutls-dev
+  #libgnutls-dev:i386
+  libasound2-dev
+  libasound2-dev:i386
+  libdbus-1-dev
+  libdbus-1-dev:i386
+  libgphoto2-dev
+  libgphoto2-port12
+  libpulse-dev
+  libgstreamer1.0-dev
+  libgstreamer-plugins-base1.0-dev
+  #above deps are meant to be installed in 32 OR 64 bit VM (not both)
   xorg-dev
   libx11-dev
   flex
